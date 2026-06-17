@@ -1,0 +1,28 @@
+Resumo teórico da estrutura de dados Lista Duplamente Encadeada em C:
+
+- É uma lista encadeada em que cada nó tem DOIS ponteiros:
+  * prev -> aponta para o nó ANTERIOR;
+  * next -> aponta para o PRÓXIMO nó.
+  O primeiro nó tem prev = NULL e o último tem next = NULL.
+
+- A lista costuma guardar inicio E fim, dando acesso O(1) às duas
+  pontas.
+
+- Vantagem sobre a lista simples:
+  * dá para percorrer nos DOIS sentidos (frente->trás e trás->frente);
+  * remover o ÚLTIMO elemento é O(1), porque o fim "enxerga" quem
+    vem antes dele (pelo prev). Na lista simples isso exigiria
+    percorrer tudo.
+
+- Desvantagem:
+  * gasta mais memória (um ponteiro a mais por nó);
+  * inserções/remoções exigem ajustar mais ponteiros (prev e next),
+    então é mais fácil errar.
+
+- Operações implementadas: cria_lista, vazia, tamanho, insere_inicio,
+  insere_fim, remove_inicio, remove_fim e libera_lista.
+
+- Pontos de atenção (caem em prova):
+  * ao inserir/remover, atualizar prev E next dos vizinhos;
+  * caso especial: lista com 1 elemento (inicio == fim);
+  * quando esvazia, zerar inicio E fim.

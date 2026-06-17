@@ -1,0 +1,29 @@
+Resumo teórico da estrutura de dados Fila implementada em C:
+
+- Funciona em sistema FIFO: "First in, First out"
+  (o primeiro que entra é o primeiro que sai).
+
+- Analogia: uma fila de banco. Entra-se pelo FIM e é-se atendido
+  pelo INÍCIO.
+
+- Implementada de forma encadeada, a fila guarda DOIS ponteiros:
+  * inicio -> de onde os elementos SAEM (remoção);
+  * fim    -> onde os elementos ENTRAM (inserção).
+  Guardar o "fim" evita percorrer a fila toda a cada inserção.
+
+- Operações:
+  * enfileirar (enqueue)    -> insere um valor no FIM;
+  * desenfileirar (dequeue) -> remove o valor do INÍCIO;
+  * cria_fila               -> cria a fila vazia;
+  * destroi_fila            -> libera toda a memória.
+
+- desenfileirar recebe um int* (ponteiro): o return diz se deu certo
+  (1) ou falhou (0) e o valor que saiu é devolvido escrevendo em *dado.
+
+- Pontos de atenção:
+  * quando a fila fica vazia após uma remoção, o "fim" também
+    precisa virar NULL (senão fica apontando para memória liberada);
+  * sempre checar se a fila está vazia antes de desenfileirar.
+
+- Usos comuns: filas de impressão, atendimento por ordem de chegada,
+  buffers, escalonamento de processos (round-robin).

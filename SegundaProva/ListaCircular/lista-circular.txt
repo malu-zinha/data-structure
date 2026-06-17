@@ -1,0 +1,30 @@
+Resumo teórico da estrutura de dados Lista Circular em C:
+
+- É uma lista encadeada em que o ÚLTIMO nó NÃO aponta para NULL:
+  ele aponta de volta para o PRIMEIRO. Assim a lista "dá a volta"
+  e forma um círculo - nunca termina de fato.
+
+- Pode ser simples (só next) ou dupla (prev e next). Aqui foi feita
+  simples, guardando apenas o ponteiro "inicio".
+
+- Vantagem:
+  * a partir de qualquer nó é possível chegar a todos os outros;
+  * útil quando o processamento é cíclico (ex: rodízio/round-robin,
+    troca de turnos, playlist em repeat).
+
+- CUIDADO PRINCIPAL (o erro clássico de prova):
+  * em laços você NÃO pode parar no NULL, porque ele nunca aparece;
+  * use do-while e pare quando voltar ao ponto de partida
+    (condição: aux != inicio). Esquecer disso = LOOP INFINITO.
+
+- O "último" nó é encontrado andando até aquele cujo next == inicio.
+
+- Operações implementadas: cria_lista, vazia, tamanho, insere_inicio,
+  insere_fim, remove_inicio e libera_lista.
+
+- Pontos de atenção:
+  * ao inserir/remover nas pontas, manter o círculo fechado (o último
+    sempre apontando para o início);
+  * caso especial: 1 nó só aponta para si mesmo (no->next == no);
+  * ao liberar, também usar a referência de parada para não rodar
+    para sempre nem dar free duas vezes.

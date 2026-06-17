@@ -1,0 +1,29 @@
+Resumo teórico da estrutura de dados Lista Encadeada implementada em C:
+
+- É uma sequência de nós, onde cada nó guarda um valor e um ponteiro
+  para o próximo nó (next). O último nó aponta para NULL.
+
+- Diferente do vetor, NÃO ocupa memória contígua: cada nó é alocado
+  separadamente com malloc e fica "ligado" ao próximo por ponteiro.
+
+- Vantagens sobre o vetor:
+  * cresce/diminui dinamicamente (não precisa de tamanho fixo);
+  * inserir/remover no início é O(1) (só mexe em ponteiros).
+
+- Desvantagens:
+  * gasta memória extra com os ponteiros;
+  * acesso é sequencial: para chegar na posição N, percorre N nós
+    (não tem acesso direto como lista[i] no vetor).
+
+- Estruturas usadas:
+  * struct no  -> guarda o valor e o ponteiro next;
+  * struct lista -> guarda só o ponteiro "inicio" (a cabeça da lista).
+
+- Operações implementadas: cria_lista, vazia, tamanho, insere_inicio,
+  insere_meio (em uma posição), remove_inicio e libera_lista.
+
+- Pontos de atenção (caem em prova):
+  * sempre checar se a malloc retornou NULL;
+  * ao remover, dar free no nó para não vazar memória;
+  * para liberar tudo, guardar o "proximo" ANTES de dar free no atual
+    (senão você perde o caminho - erro use-after-free).

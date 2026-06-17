@@ -1,0 +1,27 @@
+Resumo teórico da estrutura de dados Pilha implementada em C:
+
+- Funciona em sistema LIFO: "Last in, First out"
+  (o último que entra é o primeiro que sai).
+
+- Analogia: uma pilha de pratos. Você empilha e desempilha sempre
+  pelo TOPO; não dá para tirar um prato do meio.
+
+- Implementada de forma encadeada: cada nó aponta para o de baixo,
+  e a pilha guarda apenas o ponteiro "topo".
+
+- Operações (todas mexem só no topo, por isso são O(1)):
+  * empilhar (push)    -> insere um valor no topo;
+  * desempilhar (pop)  -> remove o valor do topo;
+  * cria_pilha         -> cria a pilha vazia;
+  * destroi_pilha      -> libera toda a memória.
+
+- desempilhar recebe um int* (ponteiro): o return diz se deu certo
+  (1) ou falhou (0), e o valor que saiu é "devolvido" escrevendo
+  em *dado. É a forma de retornar um valor por parâmetro.
+
+- Pontos de atenção:
+  * antes de desempilhar, checar se a pilha está vazia;
+  * dar free no nó removido para não vazar memória.
+
+- Usos comuns: desfazer/refazer (Ctrl+Z), chamadas de função
+  (pilha de execução), verificação de parênteses balanceados.

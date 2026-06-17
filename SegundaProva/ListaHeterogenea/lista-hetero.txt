@@ -1,0 +1,30 @@
+Resumo teórico da estrutura de dados Lista Heterogênea em C:
+
+- É uma lista encadeada em que cada nó pode guardar um TIPO
+  DIFERENTE de dado (aqui: inteiro, real ou caractere). "Heterogênea"
+  = de tipos variados (o contrário de homogênea, de um tipo só).
+
+- Dois recursos de C tornam isso possível:
+  * ENUM  -> uma "etiqueta" que diz QUAL tipo o nó guarda
+            (INTEIRO, REAL, CARACTERE);
+  * UNION -> guarda UM valor por vez (int OU float OU char).
+
+- Diferença entre struct e union (cai em prova!):
+  * struct: todos os campos existem ao mesmo tempo -> os tamanhos
+            SOMAM;
+  * union: todos os campos COMPARTILHAM a mesma memória -> ocupa o
+           tamanho do MAIOR campo, e só um é válido por vez.
+  Por isso a etiqueta (tipo) é essencial: é ela que diz qual campo
+  da union ler. Ler o campo errado devolve LIXO.
+
+- O nó tem: tipo (enum) + valor (union) + next.
+
+- Operações implementadas: cria_lista, vazia, insere_int,
+  insere_float, insere_char, imprime e libera_lista.
+
+- Na hora de imprimir, usa-se um switch sobre o campo "tipo" para
+  saber qual campo da union acessar e como formatar a saída.
+
+- Uso comum: armazenar registros com campos de tipos variados sem
+  desperdiçar memória (ex: um cadastro onde cada item pode ser de
+  uma natureza diferente).
