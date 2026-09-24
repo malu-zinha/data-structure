@@ -7,6 +7,7 @@ __pycache__/
 .venv/
 venv/
 
-# binários compilados do C
+# binários compilados do C/C++
 *.o
 *.out
+cpp/build/
